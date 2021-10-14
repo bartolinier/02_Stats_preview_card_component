@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+/*** VARIABLES ***/
+
+:root {
+
+    /* ******** COLORS ******** */
+
+    /* Primary */
+
+    --Very-dark-blue: hsl(233, 47%, 7%);
+    /* main background */
+    --Dark-desaturated-blue: hsl(244, 38%, 16%);
+    /* card background */
+    --Soft-violet: hsl(277, 64%, 61%);
+    /* ACCENT*/
+
+    /* NEUTRAL */
+
+    --White: hsl(0, 0%, 100%);
+    /* main heading, stats*/
+    --Slightly-transparent-white: hsla(0, 0%, 100%, 0.75);
+    /* main paragraph*/
+    --Slightly-transparent-white: hsla(0, 0%, 100%, 0.6)
+        /* stat headings*/
+
+
+}
+
+/*** DEFAULTS ***/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+html {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+body {
+    background-color: var(--Very-dark-blue);
+    height: 100vh;
+
+}
+
+/*** MAIN CONTENT ***/
+
+/** WRAPPER **/
+
+.wrapper {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
+    grid-template-areas:
+        ". . . ."
+        ". text-area img-area ."
+        ". . . ."
+        ". attribution attribution ."
+    ;
+    height: 100vh;
+}
+
+
+/** ATTRIBUTION **/
+.attribution {
+    display: grid;
+    grid-area: attribution;
+    grid-column: 2/4;
+    text-align: center;
+    color: var(--Slightly-transparent-white);
+}
+
+/** TEXT AREA **/
+
+.text-area {
+    display: grid;
+    grid-area: text-area;
+    background-color: var(--Dark-desaturated-blue);
+    grid-template-columns: 0.5fr 2.5fr 0.8fr;
+    grid-template-rows: 0.3fr 0.5fr 0.5fr 0.5fr;
+    grid-template-areas:
+        ". . ."
+        ". heading ."
+        ". discover ."
+        ". stats .";
+    border-radius: 10px 10px 10px 10px;
+    height: 70vh;
+}
+
+/* HEADING */
+.heading {
+    display: inline;
+    grid-area: heading;
+    color: var(--White);
+    font-size: 2.25rem;
+    font-weight: 700;
+    padding-top: 30px;
+}
+
+.heading span {
+    color: var(--Soft-violet);
+
+
+}
+
+/* DISCOVER TEXT */
+.discover {
+    display: inline;
+    grid-area: discover;
+    color: var(--Slightly-transparent-white);
+    font-size: 0.95rem;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    line-height: 1.9em;
+
+}
+
+/* STATS */
+.stats {
+    display: grid;
+    grid-area: stats;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "companies templates queries";
+    gap: 35px;
+}
+
+
+.companies {
+    display: block;
+    grid-area: companies;
+}
+
+
+.templates {
+    display: block;
+    grid-area: templates;
+}
+
+.queries {
+    display: block;
+    grid-area: queries;
+}
+
+.number {
+    color: var(--White);
+    font-family: Lexend Deca;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+
+.value {
+    color: var(--Slightly-transparent-white);
+    font-family: Lexend Deca;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+
+
+}
+
+/** IMG AREA **/
+
+.img-area {
+    display: grid;
+    grid-area: img-area;
+    background-color: #aaa;
+    background-image: url(/images/image-header-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--Soft-violet);
+    background-blend-mode: multiply;
+    border-radius: 0px 10px 10px 0px;
+}
+
+/************************ MEDIA QUERIES  ********************************/
+
+/** 768 PX **/
+
+@media only screen and (max-width:768px) {
+
+    .wrapper {
+
+        grid-template-columns: 0.08fr 1fr 0.08fr;
+        grid-template-rows: 0.8fr 2.2fr 5fr 0.5fr 0.5fr;
+        grid-template-areas:
+            ". . ."
+            ". img-area ."
+            ". text-area ."
+            ". . ."
+            ". attribution ."
+        ;
+        height: auto;
+    }
+
+    .attribution {
+        display: grid;
+        grid-area: attribution;
+        grid-column: 2/3;
+        text-align: center;
+        color: var(--Slightly-transparent-white);
+    }
+
+    .img-area {
+        border-radius: 10px 10px 0px 0px;
+        background-position: center;
+    }
+
+    .text-area {
+
+        grid-template-columns: 0.3fr 2.5fr 0.3fr;
+        grid-template-rows: 0.3fr 0.5fr 0.5fr 0.5fr;
+        grid-template-areas:
+            ". . ."
+            ". heading ."
+            ". discover ."
+            ". stats .";
+        border-radius: 0px 0px 10px 10px;
+        height: auto;
+        padding-top: 30px;
+    }
+
+
+    .heading {
+        font-size: 2rem;
+        padding-top: 0px;
+        text-align: center;
+    }
+
+    .discover {
+
+        color: var(--Slightly-transparent-white);
+        font-size: 1rem;
+        line-height: 1.6em;
+        text-align: center;
+    }
+
+    .stats {
+        grid-template-areas:
+            ". companies ."
+            ". templates ."
+            ". queries .";
+        gap: 35px;
+    }
+
+    .number {
+        text-align: center;
+
+    }
+
+    .value {
+        text-align: center;
+
+    }
+
+}
+
+/** 576 PX **/
+
+@media only screen and (max-width:576px) {
+
+    .wrapper {
+
+        grid-template-columns: 0.08fr 1fr 0.08fr;
+        grid-template-rows: 0.8fr 2.2fr 5fr 0.5fr 0.5fr;
+        grid-template-areas:
+            ". . ."
+            ". img-area ."
+            ". text-area ."
+            ". . ."
+            ". attribution ."
+        ;
+        height: auto;
+    }
+
+    .attribution {
+        display: grid;
+        grid-area: attribution;
+        grid-column: 2/3;
+        text-align: center;
+        color: var(--Slightly-transparent-white);
+    }
+
+    .img-area {
+        border-radius: 10px 10px 0px 0px;
+        background-position: center;
+    }
+
+    .text-area {
+
+        grid-template-columns: 0.3fr 2.5fr 0.3fr;
+        grid-template-rows: 0.3fr 0.5fr 0.5fr 0.5fr;
+        grid-template-areas:
+            ". . ."
+            ". heading ."
+            ". discover ."
+            ". stats .";
+        border-radius: 0px 0px 10px 10px;
+        height: auto;
+        padding-top: 10px;
+    }
+
+
+    .heading {
+        font-size: 1.8rem;
+        padding-top: 0px;
+        text-align: center;
+    }
+
+    .discover {
+
+        color: var(--Slightly-transparent-white);
+        font-size: 0.9rem;
+        line-height: 1.6em;
+        text-align: center;
+    }
+
+    .stats {
+        grid-template-areas:
+            ". companies ."
+            ". templates ."
+            ". queries .";
+        gap: 35px;
+    }
+
+    .number {
+        text-align: center;
+
+    }
+
+    .value {
+        text-align: center;
+
+    }
+
+}
