@@ -174,7 +174,7 @@ body {
     display: grid;
     grid-area: img-area;
     background-color: #aaa;
-    background-image: url(/images/image-header-desktop.jpg);
+    background-image: url(https://bartolinier.github.io/02_Stats_preview_card_component/images/image-header-desktop.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-color: var(--Soft-violet);
